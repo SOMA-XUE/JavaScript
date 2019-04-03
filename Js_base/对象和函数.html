@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var obj = {
+            name:"zhangSan",
+            age:18,
+            sex:"man",
+            hobby:"game",
+            sayHi:function() {
+                console.log(this.name);
+            }
+        }
+
+        // 操作对象的属性
+        console.log(obj["name"]);// 关联数组的方式
+        console.log(obj.age);// .语法
+        for(var i in obj) {
+            console.log(i + "==" + obj[i]);// for-in i直接替代属性名
+        }
+
+        var obj2 = new Object();
+        obj2.name = "liSi";
+        obj2.age = 11;
+        obj2.sayHi = function() {
+            console.log("Hi,my name is "+this.name);
+        }
+        obj2.sayHi();
+        // 函数可以作为返回值
+        function fn1() {
+            return function() {
+                console.log("aa");
+            }
+        }
+        var xx = fn1();
+        xx();
+
+        for(var i = 0;i < ;i ++) {
+        ;
+        }
+    </script>
+</body>
+</html>
