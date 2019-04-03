@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function FindInArray(e) {
+            var min=max=e[0];
+            var minIndex=maxIndex=0;
+            for(var i=0;i<e.length;i++) {
+                if(e[i]>max) {
+                    max = e[i];
+                    maxIndex = i;
+                } else if(e[i]<min) {
+                    min = e[i];
+                    minIndex = i;
+                }
+            }
+            console.log("maxIndex:"+maxIndex+";max: "+max);
+            console.log("minIndex:"+minIndex+";min: "+min);
+        }
+
+        FindInArray([3,1,2]);
+
+
+        // 让一个数组倒叙保存另一个数组中的每一项
+        function RollbackArray(e) {
+            var arr = [];
+            for(var i in e) {
+                arr[i] = e[e.length-1-i];
+            }
+            console.log(arr);
+        }
+        RollbackArray([1,2,3]);
+
+
+        // 字符串数组用|或其他符号分割
+        function SectionArray(e) {
+           // var arr = [];
+            for(var i in e) {
+                e[i] += "|";
+            }
+            console.log(e);
+        }
+        SectionArray([1,2,3]);
+
+
+        // 有一个字符串数组，求字符串数组中每项的长度，并把长度的数值存储到新的数组中
+        function LengthIndexArray(e) {
+            var arr = [];
+            for(var i in e) {
+                arr[i] = e[i].length;
+            }
+            console.log(arr);
+        }
+        LengthIndexArray(["s","aaa","aa"]);
+
+
+
+        //数组中值为0的项去掉，将不为0的值存入一个新的数组
+        function DislodgeZeroArray(e) {
+            var arr = [];
+            for(var i in e) {
+                if(e[i] != 0) {
+                    arr.push(e[i]) ;
+                }
+                
+            }
+            console.log(arr);
+        }
+        DislodgeZeroArray([0,1,2,0]);
+
+        // 冒泡 easy
+
+        function Bubble(e) {
+            var temp,count=0;
+
+            for(var i in e) {
+                for(var j in e) {
+                    if(e[j] > e[i]) {
+                        temp = e[j];
+                        e[j]  = e[i];
+                        e[i] = temp;
+                        count++;
+                    }
+                }
+            }
+            console.log(e);
+            console.log(count);
+        }
+        Bubble([3,1,2,7,5,4]);
+    </script>
+</body>
+</html>
