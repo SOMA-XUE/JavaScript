@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // .   除了\n以外的任意一个字符
+        // []  范围
+        // ()  分组，提升优先级
+        // |   或者
+        // *   0-多次
+        // +   1-多次
+        // ?   0-1次
+        // {0,}
+        // (1,)
+        // {0,1}
+
+        // \d 数字
+        // \D 非数字
+        // \s 空白符
+        // \S 非空白符
+        // \W 特殊符号
+        // \w 非特殊符号
+        // ^ 取反，以什么开始
+        // $ 以什么结束 
+
+        //座机号码
+        // 010-12345678
+        // 1234-12345678
+        // \d{3}\d?[-]\d{8}
+        // \d{3,4}[-]\d{8}
+        // [0-9]{3,4}[-][0-9]{8}
+
+        // QQ
+        // 5位-11位数字
+        // [1-9][0-9]{4,10}
+
+        // 手机开头
+        // [1]\d{10}
+
+        // e-mail
+        // [0-9a-zA-Z_.-]+[@][0-9a-zA-Z_.-]+([.][a-zA-Z]+){1,2}
+        
+
+        // RegExp
+        // 字面量创建
+        var reg = /\d{1,5}/;
+        var flag = reg.test("jsfjslkjf:12345");
+        console.log(flag);
+
+        console.log(/[a-zA-Z]+/.test("hello")); // 简便方法 
+        console.log(/\w/.test("_")); // _非特殊符号
+        console.log(/\W/.test("￥"));
+    </script>
+</body>
+</html>

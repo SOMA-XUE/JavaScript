@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul>
+        <li>sfsfsd</li>
+        <li>sfsfsd</li>
+        <li>sfsfsd</li>
+        <li>sfsfsd</li>
+    </ul>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(document).ready(function() {
+            console.log("this is jquery  entrence");//  js的入口函数比精确jquery的入口慢,虽然他们都等待文档，但是jq不等待图片加载
+            var $li = $("li");
+            $li.text("wo gai l "); // jq方法
+
+            // jquery object ->  Dom object  两种方法，常用第一种
+            $li[0].style.backgroundColor = "red";
+            $li.get(1).style.backgroundColor = "green";
+
+
+            // Dom object  ->  jquery object 
+            var xx = document.getElementsByTagName("li");
+            $(xx[2]).text("hehe");
+            
+        
+            
+        })
+    </script>
+</body>
+</html>

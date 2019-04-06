@@ -38,6 +38,30 @@
         RollbackArray([1,2,3]);
 
 
+        function LengthGreater3(e) {
+            var arr = [];
+            for(var i = 0;i < e.length;i ++) {
+                if(e[i].length > 3) {
+                    arr.push(e[i]);
+                }
+            }
+            console.log("LengthGreater3:"+arr);
+        }
+
+        LengthGreater3(["aaaa","aaa","a","bbbbbb"]);
+
+        (function LengthGreater3(e) {
+            var arr = [];
+            for(var i = 0;i < e.length;i ++) {
+                if(e[i].length > 3) {
+                    arr.push(e[i]);
+                }
+            }
+            console.log("LengthGreater3:"+arr);
+        })(["aaaa","aaa","a","bbbbbb"]);
+
+
+
         // 字符串数组用|或其他符号分割
         function SectionArray(e) {
            // var arr = [];
@@ -79,22 +103,27 @@
         function Bubble(e) {
             var temp,count=0;
 
-            for(var i in e) {
-                for(var j in e) {
+            for(var i = 0;i<e.length-1;i++) {
+                var flag = true;
+                for(var j =0;j<e.length-1-i;j++) {
+                    count++;
                     if(e[j] > e[i]) {
                         temp = e[j];
-                        e[j]  = e[i];
-                        e[i] = temp;
-                        count++;
+                        e[j]  = e[j+1];
+                        e[j+1] = temp;
+                        flag = false;
                     }
                 }
+                if( flag ) 
+                break;
             }
+            console.log("bubble sort");
             console.log(e);
-            console.log(count);
+            return e;
         }
         Bubble([3,1,2,7,5,4]);
 
-        
+
     </script>
 </body>
 </html>

@@ -25,6 +25,10 @@
         for(var i in obj) {
             console.log(i + "==" + obj[i]);// for-in i直接替代属性名
         }
+        delete obj.hobby;// 删除对象属性
+        for(var i in obj) {
+            console.log(i + "==" + obj[i]);// for-in i直接替代属性名
+        }
 
         var obj2 = new Object();
         obj2.name = "liSi";
@@ -42,9 +46,64 @@
         var xx = fn1();
         xx();
 
-        for(var i = 0;i < ;i ++) {
-        ;
+        var obj = {
+            name:"zs",
+            age:18
         }
+        //把obj存的地址给了obj1  所以obj和obj1都存放了这个对象的地址，
+        var obj1 = obj;
+        obj1.name = "ls";
+        obj1.hobby = "ACG";
+        console.log(obj.name);//ls
+        console.log(obj1.name);//ls
+        console.log(obj1);
+
+        function setName(obj) {
+            obj.name = 'laowang';
+            obj = new Object();
+            obj.name = 'Tom';
+        }
+
+        var person = new Object();
+        setName(person);
+        console.log(person.name); //laowang
+       
+
+       function getSmall(x,y) {
+           var smaller = x < y ? x: y;
+           return smaller;
+       }
+       var x = getSmall(4,5);
+
+       function product(m,n) {
+           var res =1;
+           for(var i = m;i <= n;i ++) {
+           res*=i;
+           }
+           return res;
+       }
+       var y = product(2,4);
+
+       function getArea(r) {
+        //    var area = 3.14 * r *r;
+        //    return area;
+           return 3.14 * r *r;
+       }
+
+       
+       console.log(getArea(1));
+
+
+       function getPerimeter(r) {
+           var perimeter = 2* 3.14*r;
+           return performance;
+       }
+
+       console.log(parseFloat(1.0101000000000000,4));
+    //     for(var i = 0;i < ;i ++) {
+    //     ;
+    //     }
+    // 
     </script>
 </body>
 </html>

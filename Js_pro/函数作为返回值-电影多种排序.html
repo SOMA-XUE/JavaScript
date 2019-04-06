@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+        function File(name,size,time) {
+            this.name = name;
+            this.size = size;
+            this.time = time;
+        };
+
+        var f1 = new File("Tom&Jerry.avi","200M",1995);
+        var f2 = new File("Taitan.avi","1024M",2005);
+        var f3 = new File("Jack&Rose.avi","2048M",2017);
+
+        var arr = [f1,f2,f3];
+        for (var i = 0; i < arr.length; i++) {
+            console.log(arr[i].name + "====>" + arr[i].size+ "===>" + arr[i].time);
+        }
+        console.log("=================");
+
+        function fn(attr) {
+            return function getSort(obj1,obj2) {
+                //因为判断200M string类型时，只会看最高位，导致1000M  < 20M 的问题 
+                if(attr == "size") {
+                    obj1[attr] = parseInt(obj1[attr]);
+                    obj2[attr] = parseInt(obj2[attr]);
+                }
+                if(obj1[attr]>obj2[attr]){
+                    return 1;
+                }else if(obj1[attr]==obj2[attr]){
+                    return 0;
+                }else{
+                    return -1;
+                }
+
+            }
+        };
+
+        var ff = fn("size");
+       /*  var ff = fn("time");
+        var ff = fn("name"); */
+        
+        arr.sort(ff);
+
+
+        for (var i = 0; i < arr.length; i++) {
+            console.log(arr[i].name + "====>" + arr[i].size +"M"+ "===>" + arr[i].time);
+        }
+
+    </script>
+</body>
+</html>

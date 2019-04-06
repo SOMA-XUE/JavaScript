@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getEverySum(x) {
+            if(x<10) {
+                return x;
+            }
+            // var sum = 0; 
+
+            // 用以前的while方法
+            // while(x>0) {      
+            //     sum +=x%10;
+            //     console.log("sum:  "+sum);        
+            //     x=parseInt(x /= 10);
+            //     console.log("x:  "+x); 
+            // }
+            
+            // return sum;
+            return x%10+getEverySum(parseInt(x/10));
+        }
+
+        var summray = getEverySum(1112); 
+        console.log("summray:  "+summray);
+
+
+
+       
+    </script>
+</body>
+</html>

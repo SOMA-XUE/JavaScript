@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = "aaaa:10086,bbbb:10010,cccc:10000";
+        var arr = str.match(/\d{5}/g); // g为全局搜索，不加的话，只返回10086
+        console.log(arr); // ["10086", "10010", "10000"]
+
+
+        var str = "123123@xx.com,fanggang@valdp.cn 2164564647@outlook.com 2`eamil@qq.com.cn";
+        var array = str.match(/\w+@\w+\.\w+(\.\w+)?/g);
+        console.log(array);// ["123123@xx.com", "fanggang@valdp.cn", "2164564647@outlook.com", "eamil@qq.com.cn"]
+
+
+        // 单独提取1组 年 月 日
+        var str = "2019-04-11";
+        var arr2 = str.match(/(\d{4})[-](\d{2})[-](\d{2})/g);
+        console.log(RegExp.$2); //利用括号将str分成3组，再用RegExp.$ 选择  
+
+        // 单独提取，用户名，服务商，域名
+        var email = "fanggang@valdp.cn.com"; 
+        var arr3 = email.match(/(\w+)@(\w+)(\.\w+(\.\w+)?)/g);
+        console.log("User:"+RegExp.$1);
+        console.log("Service:"+RegExp.$2);
+        console.log("yuMing:"+RegExp.$3);
+
+
+        var str = "你是一只猪猪猪猪！";
+        str = str.replace(/猪/g,"狗");
+        console.log(str);
+
+
+        // 替换空白
+        var str = "      hello    world!";
+        str = str.trim();// 只能去除两边的空白，中间的不行
+        console.log(str);// hello    world!
+
+        var str = "      hello    world!";
+        str = str.replace(/\s+/g,"");
+        console.log(str);
+
+        // h,H都替换成S
+        var str4 = "HhpphH";
+        str4 = str4.replace(/h/gi,"S"); // i  不区分大小写
+        console.log(str4);
+
+
+
+
+        // 正则表达式的exec方法和match差不多，但是不包含所有符合条件的值，需要遍历
+        var str = "aaaa:10086,bbbb:10010,cccc:10000";
+        var reg = /\d{5}/g;
+
+        var res = reg.exec(str);
+        while(res) {
+            console.log(res);
+            res = reg.exec(str);
+        }
+
+    </script>
+</body>
+</html>
