@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 数组去重
+        var arr = [1,1,2,2,3,3,4,5,6];
+        // arr.pop();
+        var newArr = [];
+        for(var i = 0;i < arr.length;i ++) {
+            if(newArr.indexOf(arr[i]) === -1) {
+                newArr.push(arr[i]);
+            }
+        }
+        console.log(newArr);
+        console.log([... new Set(arr)]);
+
+
+        // 统计数组中，每个元素出现的次数
+        var obj = {};
+        for(var i = 0;i < arr.length;i ++) {
+            if(obj[arr[i]] === undefined ) {
+                obj[arr[i]] = 1;
+            } else {
+                obj[arr[i]]++;
+            }
+        }
+        console.log(obj);
+    </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 350px;
+            height: 350px;
+            margin: 100px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .big {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 0;
+            left: 360px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            display: none;
+        }
+
+        .mask {
+            width: 175px;
+            height: 175px;
+            background: rgba(255, 255, 0, 0.4);
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            cursor: move;
+            display: none;
+        }
+
+        .small {
+            position: relative;
+        }
+
+        .box img {
+            vertical-align: top;
+        }
+
+        #bigBox img {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <div id="smallBox" class="small">
+            <img src="img/001.jpg" width="350" alt="" />
+            <div id="mask" class="mask"></div>
+        </div>
+        <div id="bigBox" class="big">
+            <img src="img/0001.jpg" width="800" alt="" />
+        </div>
+    </div>
+
+
+    <script>
+        var box = document.querySelector('#box');
+        var smallBox = document.querySelector('#smallBox');
+        var mask = document.getElementById("mask");
+        var bigBox = document.getElementById("bigBox");
+        var bigImg = document.querySelector(".big img");
+
+        smallBox.onmouseover = function () {
+            mask.style.display = 'block';
+            bigBox.style.display = 'block';
+        }
+
+        smallBox.onmouseout = function () {
+            mask.style.display = 'none';
+            bigBox.style.display = 'none';
+        }
+
+        smallBox.onmousemove = function (e) {
+
+            // 鼠标距离smallbox的上左边界距离
+            var spaceX = e.clientX - box.offsetLeft;
+            var spaceY = e.clientY - box.offsetTop;
+
+            // 为什么不用smallBox.offsetLeft？ 因为offset=left/top
+            /* offsetLeft与style.left的区别
+            offsetLeft 获取的是相对于父对象的左边距
+
+            left 获取或设置相对于 具有定位属性(position定义为relative)的父对象 的左边距
+
+            如果父div的position定义为relative, 子div的position定义为absolute，那么子div的style.left的值是相对于父div的值，
+            这同offsetLeft是相同的，区别在于：
+            1. style.left 返回的是字符串，如28px，offsetLeft返回的是数值28，如果需要对取得的值进行计算，
+            还用offsetLeft比较方便。
+            2. style.left是读写的，offsetLeft是只读的，所以要改变div的位置，只能修改style.left。
+            3. style.left的值需要事先定义，否则取到的值为空。而且必须要定义在html里，我做过试验，如果定义在
+            css里，style.left的值仍然 为空，这就是我刚开始碰到的问题，总是取不到style.left的值。
+
+            offsetLeft则仍然能够取到，无需事先定义div的位置。 */
+            console.log('box.offsetLeft: ' + box.offsetLeft+'     smallBox.offsetLeft: ' + smallBox.offsetLeft);
+
+
+            //给mask设置
+            var x = spaceX - mask.offsetWidth / 2;
+            var y = spaceY - mask.offsetHeight / 2;
+
+
+            //限制x和y的取值
+            if (x < 0) {
+                x = 0;
+            }
+            if (y < 0) {
+                y = 0;
+            }
+            if (x > smallBox.offsetWidth - mask.offsetWidth) {
+                x = smallBox.offsetWidth - mask.offsetWidth;
+            }
+
+            if (y > smallBox.offsetHeight - mask.offsetHeight) {
+                y = smallBox.offsetHeight - mask.offsetHeight;
+            }
+
+            console.log('x: '+x+'  '+'y: '+y);
+            console.log('smallBox.offsetWidth('+ smallBox.offsetWidth+')- mask.offsetWidth('+mask.offsetWidth +'): '+(smallBox.offsetWidth - mask.offsetWidth));
+            console.log(x > smallBox.offsetWidth - mask.offsetWidth);
+
+            mask.style.left = x + "px";
+            mask.style.top = y + "px";
+
+            bigImg.style.left = - x / (smallBox.offsetWidth - mask.offsetWidth) * (bigImg.offsetWidth - bigBox.offsetWidth) + "px";
+
+            bigImg.style.top = - y / (smallBox.offsetHeight - mask.offsetHeight) * (bigImg.offsetHeight - bigBox.offsetHeight) + "px";
+
+        }
+    </script>
+</body>
+
+</html>

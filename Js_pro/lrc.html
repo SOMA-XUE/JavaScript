@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var lrcInterval = setInterval(function () {
+
+            var curLrcNode = T.timeKey[Math.floor(player.getPosition() / 1000)];
+
+            if (curLrcNode > -1) {
+
+                var lrcMarginTop = 0 – Number(T.lrcNodes[curLrcNode].lang),
+
+                    v = Math.floor((T.lrcNodes[curLrcNode].lang – T.lrcNodes[T.prevLrcNode].lang) / 25);
+
+        if (v != 0) {
+
+            T.moveLrc(v, lrcMarginTop);
+
+        }
+
+        T.lrcNodes[T.prevLrcNode].style.color = ‘#666666′;
+
+        T.lrcNodes[curLrcNode].style.color = T.lrcColor;
+
+        T.prevLrcNode = curLrcNode;
+
+} else {
+
+            var v = Math.floor((0 – T.lrcNodes[T.prevLrcNode].lang) / 25);
+
+            if (v != 0) {
+
+                T.moveLrc(v, 0);
+
+            }
+
+            T.lrcNodes[T.prevLrcNode].style.color = ‘#666666′;
+
+            T.prevLrcNode = 0;
+
+        }
+
+}, 1000);
+
+        // 歌词滑动函数：
+
+        moveLrc: function(v, d) {      //param：运动速度v ， 终点 d
+
+            var lrcContent = this.lrcContent;
+
+            if (this.moveInterval) {
+
+                window.clearInterval(this.moveInterval);
+
+            }
+
+            this.moveInterval = setInterval(function () {
+
+                var top = parseInt($(lrcContent).getStyle(‘marginTop’));
+
+                if (Math.abs(top – d) <= 25) {       //当绝对距离小于行高时，速度减为1px每单位时。
+
+                    v = v / Math.abs(v);
+
+                }
+
+                if (v > 0) {      //速度为正时，歌词向上滚动
+
+                    if (top > d) {
+
+                        lrcContent.style.marginTop = top – v + ‘px’;
+
+                    } else {
+
+                        if (top == d) {
+
+                            window.clearInterval(this.moveInterval);
+
+                            lrcContent.lang = d;
+
+                        } else {
+
+                            v = 0 – v;
+
+                        }
+
+                    }
+
+                } else {   //速度为正时，歌词向下滚动
+
+                    if (top < d) {
+
+                        lrcContent.style.marginTop = top – v + ‘px’;
+
+                    } else {
+
+                        if (top == d) {
+
+                            window.clearInterval(this.moveInterval);
+
+                            lrcContent.lang = d;
+
+                        } else {
+
+                            v = 0 – v;
+
+                        }
+
+                    }
+
+                }
+
+            }, 15)
+
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li span {
+            height: 100px;
+            display: block;
+            background-color: skyblue;
+            text-align: center;
+            border: 1ps solid #ccc;
+        }
+        li div {
+            height: 200px;
+            background-color: #fff;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+
+    <ul>
+        <li>
+            <span>biaoTi</span>
+            <div>I am pop div</div>
+        </li>
+        <li>
+            <span>biaoTi</span>
+            <div>I am pop div</div>
+        </li>
+        <li>
+            <span>biaoTi</span>
+            <div>I am pop div</div>
+        </li>
+        <li>
+            <span>biaoTi</span>
+            <div>I am pop div</div>
+        </li>
+    </ul>
+    <script src="jquery-1.12.4.js"></script>
+
+    <script>
+        $("span").click(function() {
+            // next() 下一个相邻元素，siblings() 所有兄弟元素
+            $(this).next().slideDown(100).parent().siblings().children("div").slideUp(100);
+        })
+    </script>
+</body>
+</html>

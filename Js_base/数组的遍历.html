@@ -98,7 +98,7 @@
         }
         DislodgeZeroArray([0,1,2,0]);
 
-        // 冒泡 easy
+        // 冒泡，最终优化版 ，假设成立法
 
         function Bubble(e) {
             var temp,count=0;
@@ -107,7 +107,7 @@
                 var flag = true;
                 for(var j =0;j<e.length-1-i;j++) {
                     count++;
-                    if(e[j] > e[i]) {
+                    if(e[j] > e[j+1]) {
                         temp = e[j];
                         e[j]  = e[j+1];
                         e[j+1] = temp;

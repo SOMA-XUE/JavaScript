@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="test" id="test">
+        test
+        <div style="display:none">
+            <span>
+                test
+            </span>
+        </div>
+
+    </div>
+
+    <input type="text" id="test2" value="RTX 2080Ti">
+
+    <script type="text/javascript">
+        var browserName = navigator.userAgent.toLowerCase();
+        if (/msie/i.test(browserName) && !/opera/.test(browserName)) {
+            console.log("IE");
+        } else if (/firefox/i.test(browserName)) {
+            console.log("Firefox");
+        } else if (/chrome/i.test(browserName) && /webkit/i.test(browserName) && /mozilla/i.test(browserName)) {
+            console.log("Chrome");
+        } else if (/opera/i.test(browserName)) {
+            console.log("Opera");
+        } else if (/webkit/i.test(browserName) && !(/chrome/i.test(browserName) && /webkit/i.test(browserName) && /mozilla/i.test(browserName))) {
+            console.log("Safari");
+        } else {
+            console.log("不知道什么鬼!");
+        }
+
+        var test = document.querySelector('#test2');
+        test2.onfocus = function() {
+            if(this.value == 'RTX 2080Ti')
+            this.value = '';
+        }
+        test2.onblur = function() {
+            if(this.value == '')
+            this.value = 'RTX 2080Ti';
+        }
+    </script>
+    
+</body>
+
+</html>

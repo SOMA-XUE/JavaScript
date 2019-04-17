@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-    
+
         var car = {
             name: "BMW",
             color: "blue",
-            racing: function() {
+            racing: function () {
                 console.log("racing is life");
             }
         };
@@ -21,6 +23,21 @@
         car.racing();
         car.kind = "racingCar";
         console.log(car);
+
+
+        // object的[]语法，适用于不清楚对象的属性时
+        var arr1 = ['name', 'age', 'gender'];
+        var arr2 = ['zs', 18, 'man'];
+        var obj = {};
+
+        for (var i = 0; i < arr1.length; i++) {
+            obj[arr1[i]] = arr2[i];
+        }
+        console.log(obj);
+        console.log(obj[0]);
+
+        
     </script>
 </body>
+
 </html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            /* display: flex;
+            height: 100%;
+            width: 100%;
+            position: absolute; */
+        }
+        .box2 {
+            background-color: skyblue;
+            /* flex: 1; */
+            height: 100%;
+            width: 100%;
+            position: fixed;
+
+        }
+        .box1 {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            height: 700px;
+            width: 700px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1" id="box" aa="bb"></div>
+
+
+    <script>
+        var box = document.getElementById('box');
+
+        // box.removeAttribute("aa");
+        
+
+
+        box.onclick = function() {
+            if(this.className == 'box1') {
+                this.className = 'box2';
+                var text =document.createElement('p');
+                text.style.fontSize = '70px';
+                text.style.color = 'white';
+                text.innerText='网页全屏模式';
+                text.style.textAlign = 'center';
+                this.appendChild(text);
+                
+            } else {
+                this.className = 'box1';
+                this.innerText = '';
+            }
+
+        }
+    </script>
+</body>
+</html>

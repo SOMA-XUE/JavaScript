@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .tab {
+            margin: 100px auto;
+        }
+        ul {
+            height: 100px;
+            display: flex;
+            
+        }
+        li {
+
+            flex: 1;
+            text-align: center;
+            line-height: 100px;
+            background-color: pink;
+        }
+        li:first-child {
+            background-color: skyblue;
+        }
+        .tabBody {
+            position: relative;
+            margin-top: 50px;
+        }
+        .tabBody div {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+            font-size: 40px;
+            width: 100%;
+            text-align: center;
+
+        }
+        .tabBody div:first-child {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tab">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+
+        <div class="tabBody">
+            <div>Content1</div>
+            <div>Content2</div>
+            <div>Content3</div>
+            <div>Content4</div>
+        </div>
+    </div>
+    <script>
+        var lis = document.getElementsByTagName('li');
+        var divs = document.getElementsByClassName('tabBody')[0].getElementsByTagName('div');
+
+        for(var i = 0;i < lis.length;i ++) {
+            lis[i].aa = i;
+            lis[i].onclick = function() {
+                console.log(this.aa);
+                for(var i = 0;i < lis.length;i ++) {
+                    lis[i].style.backgroundColor = 'pink';
+                    divs[i].style.display = 'none';
+                }
+                this.style.backgroundColor = 'skyblue';
+                divs[this.aa].style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

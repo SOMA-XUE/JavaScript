@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Math.PI floor ceil round random max min 
+
+        // 随机生成一个rgb颜色
+        function randomColor() {
+            var color1 = parseInt(Math.random()*256);
+            var color2 = parseInt(Math.random()*256);
+            var color3 = parseInt(Math.random()*256);
+            document.body.style.backgroundColor = 'rgba(' + color1 + ',' + color2 + ',' + color3 + ')';
+            setTimeout('randomColor()',100);
+            return 'rgba(' + color1 + ',' + color2 + ',' + color3 + ')';
+            
+        }
+        randomColor();
+
+        
+    </script>
+</body>
+</html>

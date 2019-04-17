@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .small {
+            float: left;
+            background: url("img/1.jpg") no-repeat;
+            width: 690px;
+            height: 993px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .big {
+            float: right;
+            height: 993px;
+            width: 1100px;
+            border: 1px solid #000;
+            background-image: url("img/2.png");
+            background-position: -100px -100px;
+            background-repeat: no-repeat;
+        }
+
+        .watcher {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(255, 255, 0, 0.5)
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="small">
+        <div class="watcher"></div>
+    </div>
+    <div class="big"></div>
+    <script>
+        var sm = document.querySelector('.small');
+        var bi = document.querySelector('.big');
+        var wa = document.querySelector('.watcher');
+
+
+        sm.addEventListener('mousemove', function (e) {
+            var x = e.pageX - wa.offsetLeft/2;
+            var y = e.pageY - wa.offsetTop/2;
+
+            wa.style.left = x + 'px';
+            wa.style.top = y + 'px';
+
+
+            bi.style.backgroundPosition = (-e.pageX * 3 + 'px') + ' ' + (-e.pageY * 3 + 'px');
+
+        }
+        )
+
+        // sm.onmousemove = function () {
+
+        // }
+    </script>
+</body>
+
+</html>

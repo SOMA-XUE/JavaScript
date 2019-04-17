@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getNewName(e) {
+            e = e.split("-");// 用split将原string按-分割 得到["get", "element", "by", "id"]，["get", "element", "by", "id"]
+
+            for(var i = 1;i < e.length;i ++) { //从index=1遍历
+                e[i] = e[i].split(""); // 将数组中的元素转换成数组，便于使用数组的方法 ["e", "l", "e", "m", "e", "n", "t"]
+
+                var head = e[i].shift().toUpperCase();
+                e[i].unshift(head); // 提取首字母，变成大写，再放回数组头部
+
+                e[i] = e[i].join(''); // 再将数组变回成string
+            }
+
+            e = e.join('');// 再将数组变回成string
+            console.log(e);
+        }
+
+        getNewName('get-element-by-id');
+    </script>
+</body>
+</html>

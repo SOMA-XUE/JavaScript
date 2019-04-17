@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var a = 10;
+        // function test() {
+        //     a = 100; console.log(a);
+        //     // console.log(this.a);
+        //     console.dir(this);
+        //     var a; console.log(a);
+        // }
+        // test();
+
+        // function Person(name) {
+        //     this.name = name;
+        //     console.dir(this);
+        // }
+        // var soma = new Person('soma');
+
+        // var a=10; b=20; c=4;  console.log(++b+c+a++); 
+
+        // for (var i = 1; i < 10; i = i + 1) {
+        //     if (i % 2 == 0) {
+        //         i = i * 2;
+        //     }
+        //     console.log(i);
+        // }
+
+
+        // var a = 10;
+        // if (a > 5) {
+        //     a = a + 3;
+        // } else if (a == 13) {
+        //     a = a + 4;
+        // } else if (a == 17) {
+        //     a = a + 5;
+        // } else {
+        //     a = a + 6;
+        // }
+        // console.log(a);
+
+        // var x =10;
+        // if(x>1) {
+        //     console.log('a');
+        // } 
+        // if(x>3) {
+        //     console.log('b');
+        // }
+
+        var str = "get-element-by-id";
+        str = str.split("-");
+        var str1 = str[0];
+        for (var i = 1; i < str.length; i++) {
+            str1 += str[i].replace(str[i][0], str[i][0].toUpperCase());
+        }
+        console.log(str1);
+
+        var str = "get-element-by-id";
+        str = str.split("-");
+        var str1 = str[0];
+        for (var i = 1; i < str.length; i++) {
+            console.log(str[i][0].toUpperCase());
+            console.log(str[i].slice(1));
+            str1 += str[i][0].toUpperCase() + str[i].slice(1);
+        }
+        console.log(str1);
+
+
+
+    </script>
+</body>
+
+</html>

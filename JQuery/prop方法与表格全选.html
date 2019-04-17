@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            text-align: center;
+        }
+        thead {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="button" value="yes">
+    <input type="button" value="no">
+    <input type="checkbox" id="ck">
+    <!-- <input type="radio" selected> -->
+
+    <!-- <div id="j_cbAll">
+        
+        <input type="checkbox" value='2'>
+        <input type="checkbox" value='3'>
+        <input type="checkbox" value='4'>
+    </div> -->
+
+    <table width="500" height="300" border="1" cellspacing="0" cellpadding="0" align="center">
+        <caption>海底捞自主点餐系统</caption>
+        <thead>
+            <tr>
+                <th><input type="checkbox" id="j_cbAll"></th>
+                <th>锅底</th>
+                <th>宫格</th>
+            </tr>
+        </thead>
+
+
+        <tbody id="j_tb">
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>番茄锅底</td>
+                <td>1</td>
+            </tr>
+
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>鸳鸯锅底</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>麻辣锅底</td>
+                <td>1</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+
+        // 对于bool类型的属性，不要attr方法，应该用prop，常用于checked，selected，disabled
+        $(function () {
+            $("input").eq(0).click(function () {
+                $("#ck").prop("checked", true);
+            });
+            $("input").eq(1).click(function () {
+                $("#ck").prop("checked", false);
+            });
+
+
+
+
+            // 点菜案例
+            $("#j_cbAll").click(function() {
+                $("#j_tb input").prop("checked",$(this).prop("checked"));
+            });
+
+            $("#j_tb input").click(function() {
+                // console.log($("#j_tb input:checked").length);
+                if( $("#j_tb input:checked").length == 3) {
+                    $("#j_cbAll").prop("checked",true);
+                } else {
+                    $("#j_cbAll").prop("checked",false);
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .wrap {
+            position: relative;
+            height: 315px;
+        }
+        ul {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 245px;
+            height: 315px;
+        }
+        li {
+            list-style: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .left-arr {
+            position: absolute;
+            left: 300px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            line-height: 50px;
+        }
+        .right-arr {
+            position: absolute;
+            right: 300px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            line-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrap">
+        <ul>
+            <li><img src="1.gif" alt=""></li>
+            <li><img src="2.gif" alt=""></li>
+            <li><img src="3.gif" alt=""></li>
+            <li><img src="4.gif" alt=""></li>
+        </ul>
+        <span class="left-arr">&lt;</span>
+        <span class="right-arr">&gt;</span>
+    </div>
+    <script src="../jquery-1.12.4.js"></script>
+    <script>
+        $(function() {
+            var count = 0;
+            $('.right-arr').click(function() {
+                count++;
+                if(count == $(".wrap li").length) {
+                    count = 0;
+                }
+                // console.log(count);
+                $(".wrap li").eq(count).fadeIn().siblings().fadeOut();
+            })
+            $('.left-arr').click(function() {
+                count--;
+                if(count == -1) {
+                    count = $(".wrap li").length - 1;
+                }
+                // console.log(count);
+
+                $(".wrap li").eq(count).fadeIn().siblings().fadeOut();
+            })
+        })
+    </script>
+</body>
+
+</html>

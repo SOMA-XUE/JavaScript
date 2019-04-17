@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .One>li {
+            float: left;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul class="One">
+        <li>One
+            <ul>
+                <li>Second</li>
+                <li>Second</li>
+                <li>Second</li>
+            </ul>
+        </li>
+        <li>One
+            <ul>
+                <li>Second</li>
+                <li>Second</li>
+                <li>Second</li>
+            </ul>
+        </li>
+        <li>One
+            <ul>
+                <li>Second</li>
+                <li>Second</li>
+                <li>Second</li>
+            </ul>
+        </li>
+        <li>One
+            <ul>
+                <li>Second</li>
+                <li>Second</li>
+                <li>Second</li>
+            </ul>
+        </li>
+    </ul>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(".One>li").mouseenter(function () {
+            $(this).children("ul").show();
+        })
+
+        $(".One>li").mouseleave(function () {
+            $(this).children("ul").hide();
+        })
+    </script>
+
+</body>
+
+</html>

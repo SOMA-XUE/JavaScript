@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 计算一个程序的运行时间
+
+        // var begin = new Date();
+
+        // var sum = 0;
+        // for(var i = 0;i < 1000000000;i ++) {
+        // sum++;
+        // }
+        // var over = new Date();
+        // console.log(over - begin);
+
+
+        // 倒计时
+
+
+        var target = new Date('2019-04-09 00:00:00');
+        var now = new Date();
+        var time = Math.abs(target- now);
+        console.log(time);
+        time /= 1000; // 获取秒
+        
+        var day = parseInt(time / 3600 / 24);
+
+        var hour = parseInt(time/3600)%24;
+
+        var minute = parseInt(time/60)%60;
+        var second = parseInt(time%60);
+
+        console.log(day+" day, "+hour+' 小时, '+minute+' 分, '+second+' 秒');
+
+
+        // shift 头部删除
+        // var arr = [1,2,3];
+        // arr.unshift(arr.pop());
+        // arr.push(arr.shift());
+        // console.log(arr);
+
+    </script>
+</body>
+</html>

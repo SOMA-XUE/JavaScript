@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #map {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+            background: #00FF00 url('map/n/n/n.png') repeat;
+            z-index: 0;
+            overflow: hidden;
+            word-break: break-all;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <!-- 放置全屏地图时遇到的问题，解决方案如下：
+
+    方法一：
+
+    #map {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    background: #00FF00 url('map/n/n/n.png') repeat;
+    z-index: 0;
+    overflow:hidden; word-break:break-all; }
+    重点是要top和bottom一起使用，这是很反常规的用法，可以强制定义盒模型的区域。
+
+    还会出现滚动条，所以把溢出都设为hidden。
+
+    方法二：
+
+    html, body
+    {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    overflow:hidden;
+    }
+    #map
+    {
+    height: 100%;
+    z-index: 0;
+    background: #00FF00 url('map/n/n/n.png') repeat; -->
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="button" value="Start">
+    <input type="button" value="Over">
+    <div></div>
+    <script src="../jquery-1.12.4.js"></script>
+    <script>
+    
+
+        // animate需要至少一个参数
+        // 第一个:{} 动画样式（必须添加！！！）
+        // 第二个：持续时间
+        // 第三个：速度，默认swing，另外有linear
+        // 第四个：回调函数
+
+
+         $(function() {
+             $("input").eq(0).click(function() {
+                 $("div").animate({left:500},function() {
+                     console.log("hello animate");
+                 });
+             })
+             $("input").eq(1).click(function() {
+                 $("div").animate({left:0},function() {
+                     console.log("back animate");
+                 });
+             })
+
+            //  var str = [1,2,3,4]+'';
+            //  console.log(str);
+         })
+    </script>
+</body>
+</html>

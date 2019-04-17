@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* body {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        } */
+        .box {
+            width: 30px;
+            height: 30px;
+            background-color: skyblue;
+            position: absolute;
+            cursor: move;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+    </div>
+
+
+    <script>
+        var box = document.querySelector('.box');
+
+        // window.onkeyup = function() {
+        //     console.log(event.keyCode);
+        // }
+        box.onmousedown = function (e) {
+            x = e.pageX - box.offsetLeft;
+            y = e.pageY - box.offsetTop;
+
+            document.onmousemove = function (e) {
+                // console.log(e.pageX+e.pageY);
+
+                box.style.left = e.pageX - x + 'px';
+                box.style.top = e.pageY - y + 'px';
+            }
+        }
+
+        box.onmouseup = function () {
+            document.onmousemove = null;
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            height: 4000px;
+        }
+
+        .goTop {
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            position: fixed;
+            bottom: 100px;
+            right: 100px;
+            line-height: 100px;
+            text-align: center;
+            font-size: 40px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="goTop">
+        TOP
+    </div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            $(window).scroll(function () {
+
+                if ($(window).scrollTop() >= 1000) {
+                    $(".goTop").fadeIn(1000);
+                } else {
+                    $(".goTop").fadeOut(3000);
+                }
+            })
+
+            $(".goTop").click(function() {
+                $("html,body").animate({scrollTop:0},3000);
+            })
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #boxDom {
+            position: absolute;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+            /* display: flex; */
+        }
+
+        #idDom {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            background-color: black;
+            text-align: center;
+        }
+        #idDom video {
+            /* width: 100%; */
+            height: 100%;
+            outline: none;
+            
+        }
+
+        .content {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color:white;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="boxDom">
+        <div id="idDom">
+            <video src="movie/Join.mp4" controls autoplay></video>
+
+            <div class="content">
+                <span class="title">Words:</span>
+                <input type="text" id="text">
+                <button id="btn">Send</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="jquery-1.12.4.js"></script>
+
+    <script>
+        var color = ['pink', 'red', 'green', 'skyblue', 'orange', 'pink'];
+        $('#boxDom').attr('height',innerHeight);
+
+        // 随机生成一个rgb颜色
+        function randomColor() {
+            var color1 = parseInt(Math.random()*256);
+            var color2 = parseInt(Math.random()*256);
+            var color3 = parseInt(Math.random()*256);
+            // document.body.style.backgroundColor = 'rgba(' + color1 + ',' + color2 + ',' + color3 + ')';
+            // setTimeout('randomColor()',100);
+            return 'rgba(' + color1 + ',' + color2 + ',' + color3 + ')';
+            
+        };
+
+        $(function () {  
+
+            $('#btn').click(function () {
+                // var randomColor = parseInt(Math.random() * color.length);
+                var randomY = parseInt(Math.random() * 600);
+                var randomRgb = randomColor();
+  
+                if ($('#text').val().trim().length === 0) {
+                    alert('input nothing');
+                    return;
+                }
+
+                $('<span></span>')
+                    .text($('#text').val())
+                    .css('position', 'absolute')
+                    .css('font-size','40px')
+                    .css('color', randomRgb)
+                    .css('left', '2000px')
+                    .css('top', randomY)
+                    .animate({ left: -500 }, 10000, function () {
+                        $(this).remove();
+                    })
+                    .appendTo('#idDom');
+
+                // $('#text').val('')
+            })
+        })
+    </script>
+</body>
+
+</html>

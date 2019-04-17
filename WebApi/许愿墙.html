@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            height: 0;
+
+        }
+
+        body {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: pink;
+        }
+
+        .box {
+            width: 1800px;
+            height: 800px;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, .5);
+            position: relative;
+        }
+
+        .item {
+            width: 200px;
+            height: 100px;
+            padding: 30px;
+            box-sizing: border-box;
+            border: 1px solid red;
+            color: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <div class="item">
+            Warning! BUG!
+            Warning! BUG!
+        </div>
+    </div>
+
+    <script>
+
+
+
+
+
+        function getNewItem() {
+            var randomX = parseInt(Math.random()*1600);
+            var randomY = parseInt(Math.random()*700);
+            console.log('randomX:'+randomX+'  randomY:'+randomY);
+
+            // var item = document.querySelector('.item').cloneNode(true);
+            var item = document.createElement('div');
+            item.className='item';
+            item.innerText = 'Warning! BUG! Warning! BUG!';
+            // item.style.positon = 'absolute';
+            item.style.top = randomY + "px";
+            item.style.left = randomX + "px";
+
+            document.querySelector('.box').appendChild(item);
+
+            setTimeout('getNewItem()', 100);
+            
+        }
+
+        // setInterval(getNewItem(), 1000);
+        
+
+        
+        function clean() {
+            document.querySelector('.box').innerHTML = '';
+            setTimeout('clean()', 5000);
+        }
+        getNewItem();
+        setInterval('clean()',5000);
+
+    </script>
+</body>
+
+</html>
